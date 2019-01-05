@@ -17,7 +17,8 @@ title: Instructor
 
 `@script`
 Welcome back to this Sentiment Analysis in Python course! 
-In the first lesson we learned what sentiment analysis is, when we can use it, and practiced some basics using the famous IMDB  movies reviews data set! In this Chapter, we proceed on our journey by embarking on the first steps when performing a sentiment analysis tasks : transforming our text data to numeric form.  
+In the first lesson we learned what sentiment analysis is, when we can use it, and practiced some basics using the famous IMDB  movies reviews data set! In this Chapter, we proceed on our journey by embarking on the first steps in performing a sentiment analysis task: transforming our text data to numeric form.  
+
 Why do we need to do that? I hope by now it is clear that a machine learning model cannot work with the text data directly, but rather with numeric features we create from the data.
 
 
@@ -36,7 +37,7 @@ key: "290fe3cc0b"
 
 
 `@script`
-We start with a basic and crude, but often quite helpful method, called bag-of-words. A bag of words approach describes the occurrence, of frequency, of words within a document, or a collection of documents. It basically sums down to building a vocabulary of all the words occurring in the document and keeping track of their frequencies.
+We start with a basic and crude, but often quite useful method, called bag-of-words. A bag-of-words approach describes the occurrence, or frequency, of words within a document, or a collection of documents (corpus). It basically sums down to building a vocabulary of all the words occurring in the document and keeping track of their frequencies.
 
 
 ---
@@ -61,7 +62,7 @@ The goal of a BOW approach would be to build the following dictionary-like outpu
 
 One thing to note is that we lose the word order and grammar rules, that’s why this approach is called a ‘bag’ of words, resembling dropping a bunch of items in a bag and losing any sense of their order.
 
-This sounds straightforward but sometimes simply deciding how to build the vocabulary can be complex because of many decision we need to make: Do we remove capital letters, do we ignore punctuation? Do we remove digits and only leave alphanumeric tokens in our numeric representation of words? How many n-grams to use? Do we remove words that occur often such as ‘to’, ‘the’, ‘and’, and do we adjust that by the context of the problem we have?
+This sounds straightforward but sometimes simply deciding how to build the vocabulary can be complex because of many decision we need to make: Do we remove capital letters, do we ignore punctuation? Do we remove digits and only leave alphanumeric tokens? How many n-grams to use? Do we remove words that occur often such as ‘to’, ‘the’, ‘and’, and do we adjust that by the context of the problem we have? We will tackle these issues in later chapters.
 
 
 ---
@@ -77,7 +78,8 @@ Initial data format: ![](https://assets.datacamp.com/production/repositories/439
 
 
 `@script`
-The simplest way to do this in one line in Python is by using the CountVectorizer from the sklearn.feature_extractions.text library. CountVectorizer converts the text corpus to a sparse matrix. Let’s see how that works with an example. We will work with a sample of Amazon reviews, where we are given the score : whether the customer is happy with the product (1 if they are, 0 otherwise), and a review, which is the text.
+How do we execute a BOW in Python? The simplest way to do this in one line is by using the CountVectorizer from the sklearn.feature_extractions.text library. CountVectorizer converts the text corpus to a sparse matrix. Let’s see how that works with an example. 
+Throughout this lecture, we will work with a sample of Amazon reviews data, where we are given the score : whether the customer is happy with the product (1 if they are, 0 otherwise), and a review, which is the text.
 
 
 ---
@@ -93,7 +95,7 @@ The output will look something like this: ![](https://assets.datacamp.com/produc
 
 
 `@script`
-We apply the CountVectorizer to the text column, with the end result looking smth like this: where the column is the token (i.e. the word), and the row represents how many times we have encountered it in the respective review.
+We apply the CountVectorizer to the text column, with the end result looking smth like the table that we see: where the column is the token, and the row represents how many times we have encountered it in the respective review.
 
 
 ---
@@ -119,7 +121,7 @@ X_df = pd.DataFrame(X.toarray() , columns = vect.get_feature_names())
 
 
 `@script`
-We call the CountVectorizer, where for the moment we leave the default functional options, except for the max_features, which only considers the top max_features, given by the term frequency, i.e. it will pick the 1000 most frequent words across the corpus of reviews. We need to do that sometimes for memory’s sake. 
+We call the CountVectorizer, where for the moment we leave the default functional options, except for the max_features, which only considers the features with highest term frequency, i.e. it will pick the 1000 most frequent words across the corpus of reviews. We need to do that sometimes for memory’s sake, especially if your data is large and you work in a local environment. 
 
 Since the output of the CountVectorizer is a sparse matrix, we need to perform an additional step to transform it back to a data frame.
 
