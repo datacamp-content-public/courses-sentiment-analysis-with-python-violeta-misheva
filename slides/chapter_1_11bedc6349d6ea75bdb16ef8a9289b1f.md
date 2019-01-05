@@ -126,7 +126,7 @@ Since the output of the CountVectorizer is a sparse matrix, we need to perform a
 
 
 ---
-## Bag-of-words basics
+## Let's practice!
 
 ```yaml
 type: "FinalSlide"
@@ -134,6 +134,5 @@ key: "6e04cfd4e8"
 ```
 
 `@script`
-That was out introduction to BOW! 
-In the next chapter we expand on this and explore more options in the CountVectorizer.
+That was out introduction to BOW! Let's apply what we've learned in the exercises.
 
