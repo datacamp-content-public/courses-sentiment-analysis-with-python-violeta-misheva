@@ -18,7 +18,6 @@ title: Instructor
 `@script`
 Welcome back to this Sentiment Analysis in Python course! 
 In the first lesson we learned what sentiment analysis is, when we can use it, and practiced some basics using the famous IMDB  movies reviews data set! In this Chapter, we proceed on our journey by embarking on the first steps when performing a sentiment analysis tasks : transforming our text data to numeric form.  
-In this Chapter, we will embark on the first steps when performing a sentiment analysis tasks : transforming our text data to numeric form. 
 Why do we need to do that? I hope by now it is clear that a machine learning model cannot work with the text data directly, but rather with numeric features we create from the data.
 
 
