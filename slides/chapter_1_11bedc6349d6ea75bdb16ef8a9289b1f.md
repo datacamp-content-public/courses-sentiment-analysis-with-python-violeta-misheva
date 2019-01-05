@@ -49,20 +49,20 @@ key: "9f089079b0"
 ```
 
 `@part1`
-‘’John went to the movies on Saturday to watch the new Avengers movie. Sarah does not like the Avengers and did not join him. “
+‘’Sarah went to the cinema on Saturday to watch the new Avengers movie. John does not like the Avengers and did not join her. “
 
 
-_{‘John’: 1, ‘went’: 1, ‘to’: 2 , ‘the’: 3 , ’movies’: 1, ‘on’: 1, ‘Saturday’:1 , ‘watch’:1 , ‘new’: 1  , ‘Avengers’: 2 , ‘movie’: 1 , ‘Sarah’: 1 , ‘does’: 1, ‘not’: 2, ‘like’: 1 , ‘and’: 1  , ‘did’: 1 , ‘join’: 1 , ‘him’: 1}_
+_{‘Sarah’: 1, ‘went’: 1, ‘to’: 2 , ‘the’: 3 , ’cinema’: 1, ‘on’: 1, ‘Saturday’:1 , ‘watch’:1 , ‘new’: 1  , ‘Avengers’: 2 , ‘movie’: 1 , ‘John’: 1 , ‘does’: 1, ‘not’: 2, ‘like’: 1 , ‘and’: 1  , ‘did’: 1 , ‘join’: 1 , ‘her’: 1}_
 
 
 `@script`
-Let’s start with a simple example. Imagine you have the following string:  ‘’John went to the movies on Saturday to watch the new Avengers movie. Sarah does not like the Avengers and did not join him. “
+Let’s start with a simple example. Imagine you have the following string:  ‘’Sarah went to the cinema on Saturday to watch the new Avengers movie. John does not like the Avengers and did not join her. “
 
-The goal of a BOW approach would be to build the following dictionary-like output: John, occurs once in our string, so it has a count of 1, went occurs once, to occurs two times and so on. 
+The goal of a BOW approach would be to build the following dictionary-like output: Sarah, occurs once in our string, so it has a count of 1, went occurs once, to occurs two times and so on. 
 
 One thing to note is that we lose the word order and grammar rules, that’s why this approach is called a ‘bag’ of words, resembling dropping a bunch of items in a bag and losing any sense of their order.
 
-This sounds straightforward but sometimes simply deciding how to build the vocabulary can be complex because of many decision we need to make: Do we remove capital letters, do we ignore punctuation? Do we remove digits and only leave alphanumeric tokens? How many n-grams to use? Do we remove words that occur often such as ‘to’, ‘the’, ‘and’, and do we adjust that by the context of the problem we have? We will tackle these issues in later chapters.
+This sounds straightforward but sometimes deciding how to build the vocabulary can be complex because of many decision we need to make: Do we remove capital letters, do we ignore punctuation? Do we remove digits and only leave alphanumeric tokens? How many n-grams to use? Do we remove words that occur often such as ‘to’, ‘the’, ‘and’, and do we adjust that by the context of the problem we have? We will tackle these issues in later chapters.
 
 
 ---
@@ -121,7 +121,7 @@ X_df = pd.DataFrame(X.toarray() , columns = vect.get_feature_names())
 
 
 `@script`
-We call the CountVectorizer, where for the moment we leave the default functional options, except for the max_features, which only considers the features with highest term frequency, i.e. it will pick the 1000 most frequent words across the corpus of reviews. We need to do that sometimes for memory’s sake, especially if your data is large and you work in a local environment. 
+In code, after we import the needed libraries, we call the CountVectorizer, where for the moment we leave the default functional options, except for the max_features argument, which only considers the features with highest term frequency, i.e. it will pick the 1000 most frequent words across the corpus of reviews. We need to do that sometimes for memory’s sake, especially if your data is large and you work in a local environment. 
 
 Since the output of the CountVectorizer is a sparse matrix, we need to perform an additional step to transform it back to a data frame.
 
