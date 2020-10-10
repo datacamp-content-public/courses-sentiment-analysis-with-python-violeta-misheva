@@ -3,7 +3,7 @@ description: 'This chapter contain a video exercise with my  audition for  the c
 title: 'Survival analysis: Cox Proportional Hazard'
 ---
 
-## Insert exercise title here
+## Wrap up
 
 ```yaml
 type: VideoExercise
