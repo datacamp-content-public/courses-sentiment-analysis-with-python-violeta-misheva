@@ -1,4 +1,4 @@
-title: Sentiment Analysis with Python  Violeta Misheva
+title: Survival Analysis with Python  Violeta Misheva
 description: Course description goes here.
 programming_language: python
-from: python-base-prod:v1.0.2
+from: 'python-base-prod:v1.0.2'
